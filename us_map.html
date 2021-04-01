@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}U.S. K-Map{% endblock %}
+
+{% block header %}<h1>Heat Map of Average K-Values by State</h1>{% endblock %}
+
+{% block content %}
+		</div>
+		<div class="map">
+		{{ map_svg|safe}}
+		</div> 
+{% endblock %}

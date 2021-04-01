@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Results{% endblock %}
+
+{% block header %}<h1>Results for {{input_zip}}</h1>{% endblock %}
+
+{% block content %}
+        <div class="frame">
+            <div class="results">
+                {% if city %}
+                    <h3>The K Value for {{city}}, {{state}} {{input_zip}} is <i>{{k_var}}</i></h3>
+
+                {% else %}
+                    <h3>The K Value for {{state}} {{input_zip}} is <i>{{k_var}}</i></h3>
+                {% endif %}
+            </div>
+            <div class="map">
+            {{ map_svg|safe}}
+            </div> 
+        </div>
+{% endblock %}

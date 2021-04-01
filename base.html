@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}U.S. Environmental Health{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
+    </head>
+    <body>    		
+        <div class="header">
+            {% block header %}
+        	<h1>U.S. Environmental Health</h1>
+            <h2>Welcome to Our Final Project!</h2>
+            <h3><b><i>By Fiona Lu, Harrison Jia, Lukas Elsrode, Tiffany Cui</i></b></h3>
+            {% endblock %}
+        </div>
+        <div class="topnav">
+                <a href="{% url 'project:homepg' %}">Home</a>
+    		{% for tab, url_name in tabs.items %}
+        		<a href="{% url url_name %}">{{ tab }}</a>
+    		{% endfor %}
+    	</div>
+
+        {% block content %}
+        <div class="description">
+            <p>This project determines the environmental health of zip code locations in the U.S. based on our K-var Model.</p>
+            <p>K values lie between 0 and 1. Larger values indicate poor health.</p>
+        </div>
+        <div class="frame">
+        	<h3>Input a zip code to calculate their environmental health and compare with surrounding areas within your state!</h3>
+            <form action='' method="post">
+                {% csrf_token %}
+                <table class="form">
+                {{ form }}
+                </table>
+                <input type="submit" value="Find K" />
+            </form>
+        </div>
+        {% endblock %}
+
+	</body>
+</html> 

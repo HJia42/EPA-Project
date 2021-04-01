@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}About the K-Var Model{% endblock %}
+
+{% block header %}<h1>About the K-Var Model</h1>{% endblock %}
+
+{% block content %}
+        <div>
+            <h3>What is K?</h3>
+            <p>K is a variable that measures the environmental health of a location based on several government tracked factors -- air quality index (AQI), weather patterns, and energy production externalities. It lies between 0 and 1 with 0 being the cleanest state and 1 being the most environmentally hazardous. Our K-var is normalized by a location's urban noise which is taken as its population density. In other words, we group zip locations into bins of rural, suburban, and urban then account for that before calculating K, since urban cities are have far greater energy consumption pollution than sparsely populated areas. Doing so ensures that our K-values are not heavily tied with population density.
+            </p>
+            <h3>How is K Modeled?</h3>
+            <p>For a given input zip, we create a K-var model that compiles data on the zip code's averagge AQI, local climate variation (normalized by geographic region), and average number of pollutants emitted by the energy sector (normalized by urban noise). We use the Friedman Test to conduct Comparative Ordering on comparative cities in the same state as the input zip code and return relative K-values for randomly generated zip locations within a state.</p>
+            <h3>Data Sources</h3>
+        </div>
+        <div class="list-type1">
+            <ul>
+                <li>
+                    <a href="https://www.epa.gov/outdoor-air-quality-data">AirNow Air Quality Index (AQI) Database</a>
+                </li>
+                <li>
+                    <a href="https://www.epa.gov/">
+                        Environmental Protection Agency (EPA)</a>
+                </li>
+                <li>
+                    <a href="https://meteostat.net/en"> 
+                        Meteostat Weather and Climate Database</a>
+                </li>
+                <li>
+                    <a href="https://developer.nrel.gov/">
+                        National Renewable Energy Laboratory</a>
+                </li>
+            </ul>
+        </div>
+{% endblock %}
